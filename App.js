@@ -1,13 +1,12 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { HomeScreen } from './screens/HomeScreen';
-import { MyCardsScreen } from './screens/MyCardsScreen';
-import { StatisticsScreen } from './screens/StatisticsScreen';
-import { SettingsScreen } from './screens/SettingsScreen';
-import { useState, useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import {HomeScreen} from './screens/HomeScreen';
+import {MyCardsScreen} from './screens/MyCardsScreen';
+import {StatisticsScreen} from './screens/StatisticsScreen';
+import {SettingsScreen} from './screens/SettingsScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +17,7 @@ const lightTheme = {
     background: '#ffffff',
     text: '#000000',
   },
-  name: 'light'
+  name: 'light',
 };
 
 const darkTheme = {
@@ -28,7 +27,7 @@ const darkTheme = {
     background: '#000000',
     text: '#ffffff',
   },
-  name: 'dark'
+  name: 'dark',
 };
 
 export default function App() {
@@ -60,12 +59,11 @@ export default function App() {
               iconName = focused ? 'settings' : 'settings-outline';
             }
 
-            // You can return any component that you like here!
             return <Icon name={iconName} size={size} color={color} />;
           },
           tabBarStyle: {
-            height: 60,  // Set the height of the tab bar
-            paddingBottom: 10,  // Adjust the padding if necessary
+            height: 60,
+            paddingBottom: 10,
           },
         })}
         tabBarOptions={{
@@ -73,17 +71,11 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Home">
-          {() => <HomeScreen theme={theme.colors} />}
-        </Tab.Screen>
-        <Tab.Screen name="My Cards">
-          {() => <MyCardsScreen theme={theme.colors} />}
-        </Tab.Screen>
-        <Tab.Screen name="Statistics">
-          {() => <StatisticsScreen theme={theme.colors} />}
-        </Tab.Screen>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="My Cards" component={MyCardsScreen} />
+        <Tab.Screen name="Statistics" component={StatisticsScreen} />
         <Tab.Screen name="Settings">
-          {() => <SettingsScreen toggleTheme={toggleTheme} theme={theme.colors} />}
+          {(props) => <SettingsScreen {...props} toggleTheme={toggleTheme} theme={theme.colors} />}
         </Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
