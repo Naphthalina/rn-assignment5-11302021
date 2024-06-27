@@ -1,4 +1,3 @@
-// screens.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Switch } from 'react-native';
 
@@ -12,10 +11,6 @@ export function SettingsScreen({ toggleTheme, theme }) {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={styles.header}>
-        <Text style={{ color: theme.text, fontSize: 20, fontWeight: '600' }}>Settings</Text>
-      </View>
-
       <View style={styles.optionsContainer}>
         <TouchableOpacity style={styles.option}>
           <Text style={[styles.optionText, { color: theme.text }]}>Language</Text>
@@ -61,11 +56,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  header: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
   },
   optionsContainer: {
     paddingHorizontal: 20,

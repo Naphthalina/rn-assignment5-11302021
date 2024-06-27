@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useColorScheme } from 'react-native';
-import {HomeScreen} from './screens/HomeScreen';
-import {MyCardsScreen} from './screens/MyCardsScreen';
-import {StatisticsScreen} from './screens/StatisticsScreen';
-import {SettingsScreen} from './screens/SettingsScreen';
+import { HomeScreen } from './screens/HomeScreen';
+import { MyCardsScreen } from './screens/MyCardsScreen';
+import { StatisticsScreen } from './screens/StatisticsScreen';
+import { SettingsScreen } from './screens/SettingsScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -71,9 +71,15 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="My Cards" component={MyCardsScreen} />
-        <Tab.Screen name="Statistics" component={StatisticsScreen} />
+        <Tab.Screen name="Home">
+          {(props) => <HomeScreen {...props} theme={theme.colors} />}
+        </Tab.Screen>
+        <Tab.Screen name="My Cards">
+          {(props) => <MyCardsScreen {...props} theme={theme.colors} />}
+        </Tab.Screen>
+        <Tab.Screen name="Statistics">
+          {(props) => <StatisticsScreen {...props} theme={theme.colors} />}
+        </Tab.Screen>
         <Tab.Screen name="Settings">
           {(props) => <SettingsScreen {...props} toggleTheme={toggleTheme} theme={theme.colors} />}
         </Tab.Screen>
