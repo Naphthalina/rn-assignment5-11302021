@@ -230,6 +230,8 @@ const styles = StyleSheet.create({
     marginRight:30,
     marginLeft:20,
     marginTop:10,
+    borderRadius:10,
+    color:'gray',
   },
 
   actionsContainer:{
@@ -287,7 +289,7 @@ const styles = StyleSheet.create({
   },
 
   appleStoreContainer: {
-    marginTop: 0,
+    marginTop: 3,
     height:70,
     flexDirection:'row',
     display: 'flex',
@@ -300,6 +302,7 @@ const styles = StyleSheet.create({
     flex: 3,
     display:'flex',
     flexDirection:'row',
+    marginTop:10,
   },
 
   leftApple:{
@@ -331,9 +334,11 @@ const styles = StyleSheet.create({
   },
 
   apple:{
-    width:25,
-    height:25,
+    width:30,
+    height:30,
     marginTop:10,
+    borderRadius:10,
+    color:'gray',
   },
 
   moneyText:{

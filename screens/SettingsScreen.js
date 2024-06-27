@@ -37,13 +37,13 @@ export function SettingsScreen({ toggleTheme, theme }) {
           <Text style={styles.greaterThan}>&gt;</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.option}>
+        <TouchableOpacity style={[styles.option, { marginBottom: 30 }]}>
           <Text style={[styles.optionText, { color: theme.text }]}>Privacy Policy</Text>
           <Text style={styles.greaterThan}>&gt;</Text>
         </TouchableOpacity>
 
-        <View style={styles.option}>
-          <Text style={[styles.optionText, { color: theme.text, paddingTop:50 }]}>Theme</Text>
+        <View style={styles.themeOption}>
+          <Text style={[styles.optionText, { color: theme.text }]}>Theme</Text>
           <Switch
             trackColor={{ false: "#767577", true: "#81b0ff" }}
             thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 15,
+    paddingVertical: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
@@ -86,5 +86,11 @@ const styles = StyleSheet.create({
     color: 'grey',
     paddingRight: 20,
     fontWeight: '300',
+  },
+  themeOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 30,
   },
 });
